@@ -17,4 +17,11 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            mail to: 'anshulgarg.88@gmail.com',
+                 subject: "Pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Build URL ${env.BUILD_URL}"
+        }
+}
 }
